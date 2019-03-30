@@ -8,10 +8,12 @@ void windchill(double tempF, double wind, double chill);
 
 int main() {
 	double temp; //temperature
-	char scale; //temperature scale
+	char scale; //original temperature scale that was entered
 	double windspeed; //wind speed in MPH
 	double WCF; //wind chill factor
+	char newscale;//used to determine what scale the temperature is currently stored as
 
+	//collect data
 	cout << "Enter the wind speed in MPH: ";
 	cin >> windspeed;
 
@@ -21,8 +23,14 @@ int main() {
 	cout << "\nEnter the current temperature: ";
 	cin >> temp;
 
-	if (scale == 'c')
+	//convert to F for use in windchill
+	if (scale == 'c') {
 		ctof(temp);
+		newscale = 'f';//used as a flag to know if conversion is needed later
+}
+	else;
+
+
 }
 
 void ctof(double& temp) {//receives temp, and sends back new temp
