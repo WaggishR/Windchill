@@ -1,10 +1,11 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 using namespace std;
 
 void ctof(double& temp);
 void ftoc(double& temp);
-void windchill(double tempF, double wind);
+double windchill(double tempF, double wind);
 
 int main() {
 	double temp; //temperature
@@ -24,12 +25,20 @@ int main() {
 	cin >> temp;
 
 	//convert to F for use in windchill
-	if (scale == 'c') {
+	if (scale == 'c') 
 		ctof(temp);
-}
 	else;
 
-	WCF = windchill(temp, windspeed); 
+	WCF = windchill(temp, windspeed); //calculate windchill factor and assign to variable in main
+
+	if (scale == 'c')
+		ftoc(temp);
+	else;
+
+	cout << fixed << setprecision(1) << "\nThe current wind chill factor is " << WCF << scale;
+
+	system("pause");
+	return 0;
 
 }
 
