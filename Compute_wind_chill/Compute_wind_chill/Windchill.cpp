@@ -2,8 +2,8 @@
 #include <cmath>
 using namespace std;
 
-void ctof(int& temp);
-void ftoc(int& temp);
+void ctof(double& temp);
+void ftoc(double& temp);
 void windchill(double tempF, double wind, double chill);
 
 int main() {
@@ -21,12 +21,14 @@ int main() {
 	cout << "\nEnter the current temperature: ";
 	cin >> temp;
 
+	if (scale == 'c')
+		ctof(temp);
 }
 
-void ctof(int& temp) {//receives temp, and sends back new temp
+void ctof(double& temp) {//receives temp, and sends back new temp
 	temp = 1.8*temp+32;//formula to convert C to F
 }
 
-void ftoc(int& temp) {//recieves temp and sends back new temp
+void ftoc(double& temp) {//recieves temp and sends back new temp
 	temp = (temp - 32)*(5 / 9);//formula to convert F to C
 }
