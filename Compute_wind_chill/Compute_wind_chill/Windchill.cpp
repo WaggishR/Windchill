@@ -4,14 +4,14 @@ using namespace std;
 
 void ctof(double& temp);
 void ftoc(double& temp);
-void windchill(double tempF, double wind, double chill);
+void windchill(double tempF, double wind);
 
 int main() {
 	double temp; //temperature
 	char scale; //original temperature scale that was entered
 	double windspeed; //wind speed in MPH
 	double WCF; //wind chill factor
-	char newscale;//used to determine what scale the temperature is currently stored as
+
 
 	//collect data
 	cout << "Enter the wind speed in MPH: ";
@@ -26,10 +26,10 @@ int main() {
 	//convert to F for use in windchill
 	if (scale == 'c') {
 		ctof(temp);
-		newscale = 'f';//used as a flag to know if conversion is needed later
 }
 	else;
 
+	WCF = windchill(temp, windspeed); 
 
 }
 
@@ -39,4 +39,12 @@ void ctof(double& temp) {//receives temp, and sends back new temp
 
 void ftoc(double& temp) {//recieves temp and sends back new temp
 	temp = (temp - 32)*(5 / 9);//formula to convert F to C
+}
+
+double windchill(double tempF, double wind) {//recieves temperature in F (tempF), wind speed (wind)
+	double chill;//wind chill factor to be returned
+
+	chill = 35.74 + 0.6215*tempF - (35.75*pow((wind), 0.16)) + 0.4275*tempF*(pow(wind, 0.16));//computes wind chill factor
+
+	return chill;//returns wind chill factor
 }
