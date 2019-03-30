@@ -22,3 +22,11 @@ int main() {
 	cin >> temp;
 
 }
+
+void ctof(int& temp) {//receives temp, and sends back new temp
+	temp = 1.8*temp+32;//formula to convert C to F
+}
+
+void ftoc(int& temp) {//recieves temp and sends back new temp
+	temp = (temp - 32)*(5 / 9);//formula to convert F to C
+}
